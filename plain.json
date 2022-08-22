@@ -1,0 +1,119 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringData": {
+      "type": "string",
+      "defaultValue": "one, two, three"
+    },
+    "jsonFormattedData": {
+      "type": "string",
+      "defaultValue": "{'one': 'a', 'two': 'b'}"
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
+        }
+      }
+    },
+    "greeting": {
+      "type": "string",
+      "defaultValue": "Hello"
+    },
+    "name": {
+      "type": "string",
+      "defaultValue": "User"
+    },
+    "numberToFormat": {
+      "type": "int",
+      "defaultValue": 8175133
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "    one two three   "
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "one,two,three"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "one;two,three"
+    }
+  
+  },
+  "variables": {
+    "base64String": "[base64(parameters('stringData'))]",
+    "base64Object": "[base64(parameters('jsonFormattedData'))]",
+    "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+    "uriEncoded": "[uriComponent(variables('uriFormat'))]",
+    "delimiters": [ ",", ";" ]    
+  },
+  "resources": [
+{
+  "name" : "[concat('Name','2')]",
+  "location": "[contains(parameters('stringData'), 'e')]",
+   "properties": {
+    "templateLink": {
+      "uri": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+      "contentVersion": "1.0.0.0"
+    },
+    "toStringOutput": {
+      "type": "string",
+      "value": "[uriComponentToString(variables('uriEncoded'))]"
+    },
+    "uricompoent": {
+      "type": "string",
+      "value": "[uriComponent(variables('uriFormat'))]"
+    },
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    },
+    "formatTest": {
+      "type": "string",
+      "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+    },
+    "firstOutput": {
+      "type": "array",
+      "value": "[split(parameters('firstString'),',')]"
+    },
+    "secondOutput": {
+      "type": "array",
+      "value": "[split(parameters('secondString'),variables('delimiters'))]"
+    },
+    "trimString": {
+      "type": "string",
+      "value": "[trim(parameters('testString'))]"
+    }
+    
+}
+}
+]
+}
