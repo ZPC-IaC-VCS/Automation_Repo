@@ -1,5 +1,5 @@
  Resources :
-     InstanceSecurityGroup  :
+     InstanceSecurityGroup1  :
              Type  :  AWS::EC2::SecurityGroup
              Metadata:
                zpc-skip-policy: "ZS-AWS-00046,ZS-AWS-00048:new comment;"
