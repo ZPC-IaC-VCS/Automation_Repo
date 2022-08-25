@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "firstInt1": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "secondInt1": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "firstInt2": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "secondInt2": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "thirdString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "fourthString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "a", "b" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "a", "b" ]
+    },
+    "firstObject": {
+      "type": "object",
+      "defaultValue": { "a": "b" }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": { "a": "b" }
+    }
+  },
+  "resources": [
+    {
+    "name" : "[concat('Name','2')]",
+  "location": "[contains(parameters('stringData'), 'e')]",
+   "properties": {
+  
+    "checkInts": {
+      "type": "bool",
+      "value": "[equals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[equals(parameters('firstString'), parameters('secondString'))]"
+    },
+    "checkArrays": {
+      "type": "bool",
+      "value": "[equals(parameters('firstArray'), parameters('secondArray'))]"
+    },
+    "checkObjects": {
+      "type": "bool",
+      "value": "[equals(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "checkNotEquals": {
+      "type": "bool",
+      "value": "[not(equals(1, 2))]"
+    },
+    "checkIntsgreat": {
+      "type": "bool",
+      "value": "[greater(parameters('firstInt1'), parameters('secondInt1') )]"
+    },
+    "checkStringsgreat": {
+      "type": "bool",
+      "value": "[greater(parameters('thirdString'), parameters('fourthString'))]"
+    } ,
+    "checkIntsge": {
+      "type": "bool",
+      "value": "[greaterOrEquals(parameters('firstInt1'), parameters('secondInt1') )]"
+    },
+    "checkStringsge": {
+      "type": "bool",
+      "value": "[greaterOrEquals(parameters('firstString'), parameters('secondString'))]"
+    },
+    "checkIntsless": {
+      "type": "bool",
+      "value": "[less(parameters('firstInt2'), parameters('secondInt2') )]"
+    },
+    "checkStringsless": {
+      "type": "bool",
+      "value": "[less(parameters('firstString'), parameters('secondString'))]"
+    },
+    "checkIntsle": {
+      "type": "bool",
+      "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStringsle": {
+      "type": "bool",
+      "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
+    } }
+    }
+  ]
+  }
