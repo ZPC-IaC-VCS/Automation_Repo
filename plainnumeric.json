@@ -1,0 +1,111 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Environment": "Dev",
+        "Project": "Tutorial"
+      }
+    }
+  ,
+    "first": {
+      "type": "int",
+      "defaultValue": 6,
+      "metadata": {
+        "description": "First integer to add"
+      }
+    },
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Second integer to add"
+      }
+    },
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "4"
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
+    },"firstoperand": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "Integer being divided"
+      }
+    },
+    "secondoperand": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer used to divide"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name" : "[concat('Name','2')]",
+      "tags": "[parameters('resourceTags')]",
+      "location": "[contains(parameters('stringData'), 'e')]",
+      "properties": {
+        
+
+  
+     "addResult": {
+      "type": "int",
+      "value": "[add(3, 1)]"
+     },
+    "divResult": {
+      "type": "int",
+      "value": "[div(parameters('first'), parameters('second'))]"
+    },"custom1": {
+      "value": "[float('3.0')]"
+    },
+    "custom2": {
+      "value": "[float('test')]"
+    },
+    "intResult": {
+      "type": "int",
+      "value": "[int(parameters('stringToConvert'))]"
+    },
+    "arraymaxOutput": {
+      "type": "int",
+      "value": "[max(parameters('arrayToTest'))]"
+    },
+    "intmaxOutput": {
+      "type": "int",
+      "value": "[max(0,3,2,5,4)]"
+    },
+    "arrayminOutput": {
+      "type": "int",
+      "value": "[min(parameters('arrayToTest'))]"
+    },
+    "intminOutput": {
+      "type": "int",
+      "value": "[min(0,3,2,5,4)]"
+    },
+    "modResult": {
+      "type": "int",
+      "value": "[mod(parameters('firstoperand'), parameters('secondoperand'))]"
+    },
+    "mulResult": {
+      "type": "int",
+      "value": "[mul(parameters('first'), parameters('second'))]"
+    },
+    "subResult": {
+      "type": "int",
+      "value": "[sub(3, 6)]"
+    }
+  }
+}
+  ]
+}
+  
+
+
