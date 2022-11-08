@@ -1,0 +1,142 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceNameAks": {
+      "type": "string",
+      "defaultValue": "sidnoncomplaksDS",
+      "metadata": {
+        "description": "The name of the Managed Cluster resource."
+      }
+    },
+    "resourceNameStrg": {
+      "type": "string",
+      "defaultValue": "sidnon2compliantaks",
+      "metadata": {
+        "description": "The name of the Storage account"
+      }
+    },
+    "resourceNameDiag": {
+      "type": "string",
+      "defaultValue": "sidnon2compliantdiagaks",
+      "metadata": {
+        "description": "The name of the Diagnostics monitor"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "The location of AKS resource."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      "apiVersion": "2022-06-01",
+      "name": "[parameters('resourceNameAks')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "enableRBAC": true,
+        "dnsPrefix": "sidaksdns",
+        "agentPoolProfiles": [
+          {
+            "name": "agentpool",
+            "osDiskSizeGB": 0,
+            "count": 3,
+            "enableAutoScaling": true,
+            "minCount": 1,
+            "maxCount": 5,
+            "vmSize": "Standard_DS2_v2",
+            "osType": "Linux",
+            "storageProfile": "ManagedDisks",
+            "type": "VirtualMachineScaleSets",
+            "mode": "System",
+            "maxPods": 110,
+            "availabilityZones": [
+              "1",
+              "2",
+              "3"
+            ],
+            "nodeTaints": [],
+            "enableNodePublicIP": false,
+            "tags": {}
+          }
+        ],
+        "networkProfile": {
+          "loadBalancerSku": "standard",
+          "networkPlugin": "azure"
+        },
+        "disableLocalAccounts": false,
+        "apiServerAccessProfile": {
+          "enablePrivateCluster": false
+        },
+        "addonProfiles": {
+          "httpApplicationRouting": {
+            "enabled": true
+          },
+          "azurepolicy": {
+            "enabled": false
+          },
+          "azureKeyvaultSecretsProvider": {
+            "enabled": false,
+            "config": null
+          }
+        }
+      },
+      "tags": {},
+      "sku": {
+        "name": "Basic",
+        "tier": "Free"
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-05-01",
+      "name": "[parameters('resourceNameStrg')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "accessTier": "Hot"
+      },
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "BlobStorage"
+    },
+    {
+      "type": "Microsoft.Insights/diagnosticSettings",
+      "apiVersion": "2021-05-01-preview",
+      "scope": "[format('Microsoft.ContainerService/managedClusters/{0}', parameters('resourceNameAks'))]",
+      "name": "[parameters('resourceNameDiag')]",
+      "properties": {
+        "logs": [
+          {
+            "category": "kube-audit",
+            "enabled": true,
+            "retentionPolicy": {
+              "enabled": true,
+              "days": 360
+            }
+          },
+          {
+            "category": "kube-audit-admin",
+            "enabled": true,
+            "retentionPolicy": {
+              "enabled": true,
+              "days": 180
+            }
+          }
+        ],
+        "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('resourceNameStrg'))]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceNameAks'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('resourceNameStrg'))]"
+      ]
+    }
+  ]
+}
