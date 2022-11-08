@@ -1,0 +1,856 @@
+"failed_policies": [
+    {
+      "policy": "Ensure that EC2 instance should have IMDS disabled or require IMDSv2",
+      "policy_id": "ZS-AWS-00031",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure web app redirects all HTTP traffic to HTTPS in Azure App Service",
+      "policy_id": "ZS-AZURE-00046",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that encryption is enabled for RDS SQL Server Instances",
+      "policy_id": "ZS-AWS-00011",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that ADS - Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account",
+      "policy_id": "ZS-AZURE-00017",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure default network access rule for Storage Accounts is set to deny",
+      "policy_id": "ZS-AZURE-00003",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure Kubernetes Secrets are encrypted using Customer Master Keys (CMKs) managed in AWS KMS",
+      "policy_id": "ZS-AWS-00139",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that object versioning is enabled for S3 buckets",
+      "policy_id": "ZS-AWS-00035",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that 'Auditing' is set to 'On' for SQL Server",
+      "policy_id": "ZS-AZURE-00024",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for DaemonSet",
+      "policy_id": "ZS-K8S-00034",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted Elasticsearch-9200 access",
+      "policy_id": "ZS-AWS-00041",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for Deployment",
+      "policy_id": "ZS-K8S-00025",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure FTP deployments are disabled for API app",
+      "policy_id": "ZS-AZURE-00006",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted public access",
+      "policy_id": "ZS-AWS-00054",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that IP forwarding is not enabled on Instances",
+      "policy_id": "ZS-GCP-00006",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the default namespace should not be used for Deployment",
+      "policy_id": "ZS-K8S-00023",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted Telnet access",
+      "policy_id": "ZS-AWS-00057",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that lifecycle configuration is applied to S3 buckets",
+      "policy_id": "ZS-AWS-00034",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for StatefulSet",
+      "policy_id": "ZS-K8S-00019",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted Hadoop Name Node access",
+      "policy_id": "ZS-AWS-00043",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that the default namespace should not be used for DaemonSet",
+      "policy_id": "ZS-K8S-00032",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'skip_show_database' database flag for Cloud SQL Mysql instance is set to 'on'",
+      "policy_id": "ZS-GCP-00013",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Cloud SQL database instances are configured with automated backups",
+      "policy_id": "ZS-GCP-00040",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that 'HTTP Version' is the latest, if used to run the web app",
+      "policy_id": "ZS-AZURE-00029",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Apply Security Context to Your Replication Controller",
+      "policy_id": "ZS-K8S-00030",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Minimize the admission of containers wishing to share the host network namespace",
+      "policy_id": "ZS-K8S-00007",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted MongoDB access",
+      "policy_id": "ZS-AWS-00047",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that 'Secure transfer required' is 'Enabled' for Storage Account",
+      "policy_id": "ZS-AZURE-00035",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that EC2 has detailed monitoring enabled",
+      "policy_id": "ZS-AWS-00030",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure Shielded GKE Nodes are Enabled",
+      "policy_id": "ZS-GCP-00131",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that the 'log_min_duration_statement' database flag for Cloud SQL PostgreSQL instance is set to '-1' (disabled)",
+      "policy_id": "ZS-GCP-00027",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Apply Security Context to Your CronJob",
+      "policy_id": "ZS-K8S-00015",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure '3625 (trace flag)' database flag for Cloud SQL SQL Server instance is set to 'off'",
+      "policy_id": "ZS-GCP-00036",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the 'log_disconnections' database flag for Cloud SQL PostgreSQL instance is set to 'on'",
+      "policy_id": "ZS-GCP-00023",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure server parameter 'log_retention_days' is greater than 3 days for PostgreSQL Database Server",
+      "policy_id": "ZS-AZURE-00014",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for Pod",
+      "policy_id": "ZS-K8S-00047",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure Azure Active Directory RBAC is enabled for Azure Kubernetes Services (AKS)",
+      "policy_id": "ZS-AZURE-00002",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure server parameter 'log_checkpoints' is set to 'ON' for PostgreSQL Database Server",
+      "policy_id": "ZS-AZURE-00011",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that the default namespace should not be used for ReplicaSet",
+      "policy_id": "ZS-K8S-00020",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that encryption is enabled for RDS PostgreSQL Instances",
+      "policy_id": "ZS-AWS-00013",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted CIFS access",
+      "policy_id": "ZS-AWS-00040",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that encryption is enabled for RDS MySQL Instances",
+      "policy_id": "ZS-AWS-00007",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure server parameter 'log_connections' is set to 'ON' for PostgreSQL Database Server",
+      "policy_id": "ZS-AZURE-00012",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that default service accounts are not actively used.",
+      "policy_id": "ZS-K8S-00003",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Virtual Machines are using managed disks",
+      "policy_id": "ZS-AZURE-00041",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted HTTP access",
+      "policy_id": "ZS-AWS-00044",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure the GKE Metadata Server is Enabled",
+      "policy_id": "ZS-GCP-00130",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted SSM access",
+      "policy_id": "ZS-AWS-00056",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure default server side encryption is enabled for S3 buckets",
+      "policy_id": "ZS-AWS-00025",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted RDP access",
+      "policy_id": "ZS-AWS-00021",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure that the 'local_infile' database flag for a Cloud SQL Mysql instance is set to 'off'",
+      "policy_id": "ZS-GCP-00012",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for ReplicationController",
+      "policy_id": "ZS-K8S-00031",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted Cassandra OpsCenter agent access",
+      "policy_id": "ZS-AWS-00039",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that encryption is enabled for RDS MariaDB Instances",
+      "policy_id": "ZS-AWS-00005",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that there are not any static websites being hosted on buckets you aren't aware of",
+      "policy_id": "ZS-AWS-00036",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for CronJob",
+      "policy_id": "ZS-K8S-00016",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Apply Security Context to Your DaemonSet",
+      "policy_id": "ZS-K8S-00033",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Apply Security Context to Your Job",
+      "policy_id": "ZS-K8S-00027",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure server parameter 'log_disconnections' is set to 'ON' for PostgreSQL Database Server",
+      "policy_id": "ZS-AZURE-00013",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for Job",
+      "policy_id": "ZS-K8S-00028",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'user connections' database flag for Cloud SQL SQL Server instance is set as appropriate",
+      "policy_id": "ZS-GCP-00033",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'log_min_error_statement' database flag for Cloud SQL PostgreSQL instance is set to 'Error' or stricter",
+      "policy_id": "ZS-GCP-00016",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the 'log_lock_waits' database flag for Cloud SQL PostgreSQL instance is set to 'on'",
+      "policy_id": "ZS-GCP-00024",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that 'App Service Authentication' is enabled for API Apps",
+      "policy_id": "ZS-AZURE-00020",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted SSH access",
+      "policy_id": "ZS-AWS-00020",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted Postgres SQL access",
+      "policy_id": "ZS-AWS-00053",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that encryption is enabled for EBS volumes",
+      "policy_id": "ZS-AWS-00028",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that instances are not configured to use the default service account",
+      "policy_id": "ZS-GCP-00001",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure Secure Boot for Shielded GKE Nodes is Enabled",
+      "policy_id": "ZS-GCP-00132",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure that S3 buckets have access logging enabled",
+      "policy_id": "ZS-AWS-00018",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that 'Auditing' Retention is 'greater than 90 days' for SQL Servers",
+      "policy_id": "ZS-AZURE-00025",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'Enforce SSL connection' is set to 'true' for PostgreSQL Database Server",
+      "policy_id": "ZS-AZURE-00005",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Apply Security Context to Your Pod",
+      "policy_id": "ZS-K8S-00013",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that operating system disks are encrypted for Linux Virtual Machines",
+      "policy_id": "ZS-AZURE-00030",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure CloudTrail log file validation is enabled",
+      "policy_id": "ZS-AWS-00016",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure rotation for customer created CMKs is enabled",
+      "policy_id": "ZS-AWS-00023",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure FTP deployments are disabled for Web app",
+      "policy_id": "ZS-AZURE-00009",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure 'log_error_verbosity' database flag for Cloud SQL PostgreSQL instance is set to 'DEFAULT' or stricter",
+      "policy_id": "ZS-GCP-00017",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted SMTP access",
+      "policy_id": "ZS-AWS-00055",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Minimize the admission of privileged containers",
+      "policy_id": "ZS-K8S-00004",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the default namespace should not be used for Pod",
+      "policy_id": "ZS-K8S-00012",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the 'log_connections' database flag for Cloud SQL PostgreSQL instance is set to 'on'",
+      "policy_id": "ZS-GCP-00022",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Minimize the admission of containers wishing to share the host process ID namespace ",
+      "policy_id": "ZS-K8S-00005",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Register with Azure Active Directory is enabled on App Service",
+      "policy_id": "ZS-AZURE-00034",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure server parameter 'connection_throttling' is set to 'ON' for PostgreSQL Database Server",
+      "policy_id": "ZS-AZURE-00010",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the 'log_min_messages' database flag for Cloud SQL PostgreSQL instance is set appropriately",
+      "policy_id": "ZS-GCP-00025",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that data disks are encrypted for Linux Virtual Machines",
+      "policy_id": "ZS-AZURE-00027",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Minimize the admission of containers wishing to share the host IPC",
+      "policy_id": "ZS-K8S-00006",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure MFA Delete is enable on S3 buckets",
+      "policy_id": "ZS-AWS-00026",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Minimize the admission of root containers",
+      "policy_id": "ZS-K8S-00009",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Azure Active Directory Admin is configured for SQL Server",
+      "policy_id": "ZS-AZURE-00026",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted MySQL access",
+      "policy_id": "ZS-AWS-00051",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure 'Enforce SSL connection' is set to 'ENABLED' for MySQL Database Server",
+      "policy_id": "ZS-AZURE-00004",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that the default namespace should not be used for CronJob",
+      "policy_id": "ZS-K8S-00014",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the default namespace should not be used for StatefulSet",
+      "policy_id": "ZS-K8S-00017",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted MSSQL Admin access",
+      "policy_id": "ZS-AWS-00048",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that the default namespace should not be used for Job",
+      "policy_id": "ZS-K8S-00026",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted ELasticsearch-9300 access",
+      "policy_id": "ZS-AWS-00042",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure FTP deployments are disabled for Function app",
+      "policy_id": "ZS-AZURE-00007",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted Cassandra access",
+      "policy_id": "ZS-AWS-00038",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure 'Trusted Microsoft Services' is enabled for Storage Account access",
+      "policy_id": "ZS-AZURE-00043",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the 'log_temp_files' database flag for Cloud SQL PostgreSQL instance is set to '0' (on)",
+      "policy_id": "ZS-GCP-00026",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted Oracle DB Server access",
+      "policy_id": "ZS-AWS-00052",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Apply Security Context to Your Deployment",
+      "policy_id": "ZS-K8S-00024",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Minimize the admission of containers with allowPrivilegeEscalation ",
+      "policy_id": "ZS-K8S-00008",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the 'log_checkpoints' database flag for Cloud SQL PostgreSQL instance is set to 'on'",
+      "policy_id": "ZS-GCP-00014",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Kubernetes RBAC users are not managed with Google Groups for GKE",
+      "policy_id": "ZS-GCP-00135",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'Allow access to Azure services' for PostgreSQL Database Server is disabled",
+      "policy_id": "ZS-AZURE-00001",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that 'Advanced Data Security' on a SQL server is set to 'On'",
+      "policy_id": "ZS-AZURE-00018",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Apply Security Context to Your ReplicaSet",
+      "policy_id": "ZS-K8S-00021",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted MSSQL server access",
+      "policy_id": "ZS-AWS-00050",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Apply Security Context to Your StatefulSet",
+      "policy_id": "ZS-K8S-00018",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that 'App Service Authentication' is enabled for Function Apps",
+      "policy_id": "ZS-AZURE-00021",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure unrestricted access is disabled for S3 buckets",
+      "policy_id": "ZS-AWS-00037",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure that periodic recurring scans is enabled for SQL server",
+      "policy_id": "ZS-AZURE-00032",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that encryption is enabled for RDS Aurora SQL Instances",
+      "policy_id": "ZS-AWS-00003",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that the 'contained database authentication' database flag for Cloud SQL on the SQL Server instance is set to 'off'",
+      "policy_id": "ZS-GCP-00031",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure Compute instances are launched with Shielded VM enabled",
+      "policy_id": "ZS-GCP-00008",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Service Account Tokens are only mounted where necessary for ReplicaSet",
+      "policy_id": "ZS-K8S-00022",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Cloud Storage buckets have uniform bucket-level access enabled",
+      "policy_id": "ZS-GCP-00056",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure use of Binary Authorization",
+      "policy_id": "ZS-GCP-00134",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure 'log_statement_stats' database flag for Cloud SQL PostgreSQL instance is set to 'off'",
+      "policy_id": "ZS-GCP-00021",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Enable VPC Flow Logs and Intranode Visibility",
+      "policy_id": "ZS-GCP-00136",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that encryption is enabled for RDS Oracle Instances",
+      "policy_id": "ZS-AWS-00009",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Compute instances do not have public IP addresses",
+      "policy_id": "ZS-GCP-00009",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that data disks are encrypted for Windows Virtual Machines",
+      "policy_id": "ZS-AZURE-00028",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted LDAP access",
+      "policy_id": "ZS-AWS-00046",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Minimize the admission of containers with capabilities assigned ",
+      "policy_id": "ZS-K8S-00011",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that SSH access is restricted from the internet on NSG's",
+      "policy_id": "ZS-AZURE-00037",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure SQL server's TDE protector is encrypted with BYOK",
+      "policy_id": "ZS-AZURE-00015",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that EC2 instance belongs to a VPC",
+      "policy_id": "ZS-AWS-00029",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that the 'cross db ownership chaining' database flag for Cloud SQL SQL Server instance is set to 'off'",
+      "policy_id": "ZS-GCP-00030",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that IAM instance roles used to provision access to AWS resources",
+      "policy_id": "ZS-AWS-00001",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that RDP access is restricted from the internet on NSG's",
+      "policy_id": "ZS-AZURE-00033",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure 'remote access' database flag for Cloud SQL SQL Server instance is set to 'off'",
+      "policy_id": "ZS-GCP-00035",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'log_hostname' database flag for Cloud SQL PostgreSQL instance is set appropriately",
+      "policy_id": "ZS-GCP-00018",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Cloud SQL database instances are not open to the world",
+      "policy_id": "ZS-GCP-00038",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure 'log_planner_stats' database flag for Cloud SQL PostgreSQL instance is set to 'off'",
+      "policy_id": "ZS-GCP-00029",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted HTTPS access",
+      "policy_id": "ZS-AWS-00045",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure public read access is disabled for S3 buckets",
+      "policy_id": "ZS-AWS-00019",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure storage for critical data are encrypted with Customer Managed Key",
+      "policy_id": "ZS-AZURE-00016",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled",
+      "policy_id": "ZS-GCP-00128",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure FTP deployments are disabled for Mobile app",
+      "policy_id": "ZS-AZURE-00008",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that 'Also send email notification to admin and subscription owners' in Periodic recurring scan is enabled for SQL Server",
+      "policy_id": "ZS-AZURE-00019",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that Security Groups does not have unrestricted MSSQL Browser access",
+      "policy_id": "ZS-AWS-00049",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Compute instances have Confidential Computing enabled",
+      "policy_id": "ZS-GCP-00002",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that UDP Services are restricted from the Internet",
+      "policy_id": "ZS-AZURE-00038",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure 'log_statement' database flag for Cloud SQL PostgreSQL instance is set appropriately",
+      "policy_id": "ZS-GCP-00019",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'log_executor_stats' database flag for Cloud SQL PostgreSQL instance is set to 'off'",
+      "policy_id": "ZS-GCP-00015",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that 'App Service Authentication' is enabled for Web Apps",
+      "policy_id": "ZS-AZURE-00023",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure Integrity Monitoring for Shielded GKE Nodes is Enabled",
+      "policy_id": "ZS-GCP-00129",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure web app is using the latest version of TLS encryption",
+      "policy_id": "ZS-AZURE-00045",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that backup retention is enabled for RDS Instances",
+      "policy_id": "ZS-AWS-00032",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure 'log_duration' database flag for Cloud SQL PostgreSQL instance is set to 'on'",
+      "policy_id": "ZS-GCP-00020",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'external scripts enabled' database flag for Cloud SQL SQL Server instance is set to 'off'",
+      "policy_id": "ZS-GCP-00032",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that 'App Service Authentication' is enabled for Mobile Apps",
+      "policy_id": "ZS-AZURE-00022",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that a Default Customer-managed encryption key (CMEK) is specified for all BigQuery Data Sets",
+      "policy_id": "ZS-GCP-00011",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that 'Unattached disks' are encrypted",
+      "policy_id": "ZS-AZURE-00039",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'user options' database flag for Cloud SQL SQL Server instance is not configured",
+      "policy_id": "ZS-GCP-00034",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure 'log_parser_stats' database flag for Cloud SQL PostgreSQL instance is set to 'off'",
+      "policy_id": "ZS-GCP-00028",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure CloudTrail is enabled in all regions",
+      "policy_id": "ZS-AWS-00017",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure clusters are created with Private Nodes",
+      "policy_id": "ZS-GCP-00133",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Customer-Managed Encryption Key (CMEK) is used for BigQuery Dataset Tables encryption",
+      "policy_id": "ZS-GCP-00057",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that instances are not configured to use the default service account with full access to all Cloud APIs",
+      "policy_id": "ZS-GCP-00003",
+      "severity": "CRITICAL"
+    },
+    {
+      "policy": "Ensure that the Cloud SQL database instance requires all incoming connections to use SSL",
+      "policy_id": "ZS-GCP-00037",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure web app has 'Client Certificates (Incoming client certificates)' set to 'On'",
+      "policy_id": "ZS-AZURE-00044",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure soft delete is enabled for Azure Storage",
+      "policy_id": "ZS-AZURE-00070",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that periodic recurring scans is enabled for SQL server",
+      "policy_id": "ZS-AZURE-00036",
+      "severity": "LOW"
+    },
+    {
+      "policy": "Ensure that operating system disks are encrypted for Windows Virtual Machines",
+      "policy_id": "ZS-AZURE-00031",
+      "severity": "HIGH"
+    },
+    {
+      "policy": "Ensure that Diagnostics is enabled for SQL Databases",
+      "policy_id": "ZS-AZURE-00087",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that diagnostics is enabled on Virtual Machine",
+      "policy_id": "ZS-AZURE-00097",
+      "severity": "MEDIUM"
+    },
+    {
+      "policy": "Ensure that diagnostics log is enabled for Azure Data Lake Storage Gen2",
+      "policy_id": "ZS-AZURE-00100",
+      "severity": "MEDIUM"
+    }
