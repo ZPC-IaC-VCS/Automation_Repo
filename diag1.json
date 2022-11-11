@@ -4,7 +4,7 @@
   "parameters": {
     "resourceNameAks": {
       "type": "string",
-      "defaultValue": "sidnoncomplaksD2",
+      "defaultValue": "sidnoncomplaksD23",
       "metadata": {
         "description": "The name of the Managed Cluster resource."
       }
