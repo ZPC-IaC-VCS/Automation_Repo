@@ -8,7 +8,7 @@
       },
       "keyVaultName": {
         "type": "string",
-        "defaultValue": "sidnonkeyv1258"
+        "defaultValue": "sidnonkeyv12582"
       },
       "storageAccountName": {
         "type": "string",
