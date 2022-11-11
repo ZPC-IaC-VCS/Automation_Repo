@@ -1,0 +1,158 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+      },
+      "keyVaultName": {
+        "type": "string",
+        "defaultValue": "sidnonkeyv12582"
+      },
+      "storageAccountName": {
+        "type": "string",
+        "defaultValue": "strgnoncomplianta"
+      },
+      "diagMonitorName1": {
+        "type": "string",
+        "defaultValue": "sidnondiagstrg1"
+      },
+      "diagMonitorName2": {
+        "type": "string",
+        "defaultValue": "sidnondiagstrg2"
+      },
+      "diagMonitorName3": {
+        "type": "string",
+        "defaultValue": "sidnondiagstrg3"
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.KeyVault/vaults",
+        "apiVersion": "2022-07-01",
+        "name": "[parameters('keyVaultName')]",
+        "location": "[parameters('location')]",
+        "properties": {
+          "sku": {
+            "family": "A",
+            "name": "standard"
+          },
+          "tenantId": "[subscription().tenantId]",
+          "accessPolicies": [
+            {
+              "objectId": "1a070277-1b69-4319-87ab-17d8506622b8",
+              "permissions": {
+                "keys": [
+                  "all"
+                ],
+                "secrets": [
+                  "all"
+                ]
+              },
+              "tenantId": "[subscription().tenantId]"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2022-05-01",
+        "name": "[parameters('storageAccountName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "BlobStorage",
+        "properties": {
+          "accessTier": "Hot"
+        }
+      },
+      {
+        "type": "Microsoft.Insights/diagnosticSettings",
+        "apiVersion": "2021-05-01-preview",
+        "scope": "[format('Microsoft.KeyVault/vaults/{0}', parameters('keyVaultName'))]",
+        "name": "[parameters('diagMonitorName1')]",
+        "properties": {
+          "logs": [
+            {
+              "category": "AuditEvent",
+              "enabled": true,
+              "retentionPolicy": {
+                "days": 360,
+                "enabled": true
+              }
+            },
+            {
+              "category": "Azure Policy Evaluation Details",
+              "enabled": true,
+              "retentionPolicy": {
+                "days": 365,
+                "enabled": true
+              }
+            }
+          ],
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.Insights/diagnosticSettings",
+        "apiVersion": "2021-05-01-preview",
+        "scope": "[format('Microsoft.KeyVault/vaults/{0}', parameters('keyVaultName'))]",
+        "name": "[parameters('diagMonitorName2')]",
+        "properties": {
+          "logs": [
+            {
+              "category": "AuditEvent",
+              "enabled": true,
+              "retentionPolicy": {
+                "days": 0,
+                "enabled": true
+              }
+            },
+            {
+              "category": "Azure Policy Evaluation Details",
+              "enabled": true,
+              "retentionPolicy": {
+                "days": 365,
+                "enabled": true
+              }
+            }
+
+          ],
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.Insights/diagnosticSettings",
+        "apiVersion": "2021-05-01-preview",
+        "scope": "[format('Microsoft.KeyVault/vaults/{0}', parameters('keyVaultName'))]",
+        "name": "[parameters('diagMonitorName3')]",
+        "properties": {
+          "logs": [
+            {
+              "category": "AuditEvent",
+              "enabled": false,
+              "retentionPolicy": {
+                "days": 1,
+                "enabled": true
+              }
+            }
+          ],
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        ]
+      }
+    ]
+  }
