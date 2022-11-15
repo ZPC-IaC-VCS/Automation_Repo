@@ -7,7 +7,7 @@
             "type": "String"
         },
         "virtualNetworks_vnetappgateway_name": {
-            "defaultValue": "vnetappgateway",
+            "defaultValue": "vnetappgateway1",
             "type": "String"
         },
         "applicationGateways_NonComplaintsAppGateway_name": {
