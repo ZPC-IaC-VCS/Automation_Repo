@@ -1,0 +1,79 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vaults_sjkey_name": {
+            "defaultValue": "sjnocompliantkey",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources" : [
+    {
+            "type": "Microsoft.KeyVault/vaults",
+            "apiVersion": "2021-11-01-preview",
+            "name": "[parameters('vaults_sjkey_name')]",
+            "location": "centralindia",
+            "properties": {
+                "sku": {
+                    "family": "A",
+                    "name": "Standard"
+                },
+                "accessPolicies": [
+                    {
+                        "tenantId": "[subscription().tenantId]",
+                        "objectId": "fd788283-d1ed-4326-9580-8d59eb7b4bf0",
+                     "permissions": {
+                            "keys": [
+                                "Get",
+                                "List",
+                                "Update",
+                                "Create",
+                                "Import",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore",
+                                "GetRotationPolicy",
+                                "SetRotationPolicy",
+                                "Rotate"
+                            ],
+                            "secrets": [
+                                "Get",
+                                "List",
+                                "Set",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore"
+                            ],
+                            "certificates": [
+                                "Get",
+                                "List",
+                                "Update",
+                                "Create",
+                                "Import",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore",
+                                "ManageContacts",
+                                "ManageIssuers",
+                                "GetIssuers",
+                                "ListIssuers",
+                                "SetIssuers",
+                                "DeleteIssuers"
+                            ]
+                        }
+                    }
+                ],
+                
+                "enableSoftDelete": false,
+                "softDeleteRetentionInDays": 90,
+                "tenantId": "[subscription().tenantId]"
+                
+                
+            }
+        }
+    ]
+}
