@@ -13,7 +13,7 @@ resource "google_sql_database_instance" "default1" {
   settings {
          database_flags {
             name  = "log_min_duration_statement"
-            value = "-1"
+            value = "1"
           }
          ip_configuration {
              require_ssl  = "true"
