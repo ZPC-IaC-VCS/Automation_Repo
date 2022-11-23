@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-resource "google_sql_database_instance" "default1" {
+resource "google_sql_database_instance" "default2" {
   name             = "master-instance"
   database_version = "POSTGRES_11"
   region           = "us-central1"
