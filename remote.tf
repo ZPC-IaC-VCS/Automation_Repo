@@ -12,6 +12,7 @@ module "security-group_example_complete" {
   source  = "terraform-aws-modules/security-group/aws//examples/complete"
   version = "4.13.0"
 } 
+  
 resource "aws_instance" "app_server" {
   #zpc-skip-policy:ZS-AWS-00029:Please add a comment
   ami           = "ami-830c94e3"
