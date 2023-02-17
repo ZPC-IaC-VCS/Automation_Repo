@@ -24,6 +24,6 @@ resource "aws_instance" "monitoring" {
   instance_type = var.type
   monitoring = false
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "ExampleAppServerInstance222"
   }
 }
